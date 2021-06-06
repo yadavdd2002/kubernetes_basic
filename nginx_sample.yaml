@@ -1,20 +1,10 @@
-apiVersion: apps/v1
-kind: ReplicaSet
+apiVersion: v1
+kind: Pod
 metadata:
-  name: web
+  name: nginx
   labels:
-	env: dev
-	role: web
+    app: nginx
 spec:
-  replicas: 4
-  selector:
-	matchLabels:
-  	  role: web
-  template:
-	metadata:
-  	  labels:
-    	    role: web
-	spec:
-  	  containers:
-  	  - name: nginx
-    	    image: nginx
+  containers:
+  - name: nginx
+    image: nginx:latest
